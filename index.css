@@ -1,0 +1,146 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    gap: 1rem;
+    justify-content: end;
+    padding-right: 1rem;
+    height: 100vh;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
+    align-items: center;
+    background: white;
+}
+
+.circle {
+    height: 8vh;
+    width: 8vw;
+    border-radius: 50%;
+    background: cyan;
+    display: grid;
+    color: white;
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.circle:nth-child(1) {
+    background: crimson;
+}
+
+.circle:nth-child(1):hover ~ .sections .left {
+    left: 0;
+}
+
+.circle:nth-child(2) {
+    background: cyan;
+}
+
+.circle:nth-child(2):hover ~ .sections .right {
+    right: 0;
+}
+
+.circle:nth-child(3) {
+    background: darkred;
+}
+
+.circle:nth-child(3):hover ~ .sections .bottom {
+    bottom: 0;
+}
+
+.circle:nth-child(4) {
+    background: darkcyan;
+}
+
+.circle:nth-child(4):hover ~ .sections .top {
+    top: 0;
+}
+
+.circle:nth-child(5) {
+    background: darksalmon;
+}
+
+.circle:nth-child(5):hover ~ .sections .all {
+    left: 0;
+}
+
+.sections div {
+    position: fixed;
+    /* left: 100vw; */
+    color: white;
+    display: grid;
+    place-items: center;
+    transition: .5s ease-in-out;
+    
+}
+
+.sections div h1 {
+    opacity: 0;
+}
+
+.circle:hover ~ .section div h1 {
+    animation: fadeIn 2s .3s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 100%;
+        transform: translateY(2rem);
+    }
+}
+
+.sections .left {
+    top: 0;
+    left: -50vw;
+    width: 50vw;
+    height: 50vh;
+    background: crimson;
+}
+
+.sections .right {
+    bottom: 0;
+    right: -50vw;
+    width: 50vw;
+    height: 50vh;
+    background: cyan;
+}
+
+.sections .bottom {
+    left:0;
+    bottom: -50vw;
+    height: 50vw;
+    width: 50vh;
+    background: darkred;
+}
+
+.sections .top {
+    right: 0;
+    top: -50vw;
+    width: 50vw;
+    height: 50vh;
+    background: darkcyan;
+}
+
+.sections .all {
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: salmon;
+}
